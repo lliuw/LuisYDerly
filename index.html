@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <title>Luis y Derly - Nuestra Boda</title>
+    <title>Luis & Derly - Nuestra Boda</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Lobster&display=swap" rel="stylesheet">
 
@@ -514,6 +514,65 @@ footer{
     opacity:1;
 }
 
+/* SCROLL INDICATOR */
+
+.scroll-indicator{
+    position:absolute;
+    left:50%;
+    bottom:12px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:white;
+
+    z-index:3;
+
+    opacity:0.9;
+
+    animation:floatScroll 2s ease-in-out infinite;
+}
+
+.scroll-indicator span{
+    font-size:0.85em;
+    letter-spacing:1px;
+    margin-bottom:6px;
+
+    font-family:'Poppins', sans-serif;
+
+    text-shadow:0 2px 8px rgba(0,0,0,0.35);
+}
+
+.arrow{
+    width:16px;
+    height:16px;
+
+    border-right:2px solid white;
+    border-bottom:2px solid white;
+
+    transform:rotate(45deg);
+
+    box-shadow:0 2px 8px rgba(0,0,0,0.25);
+}
+
+@keyframes floatScroll{
+
+    0%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(8px);
+    }
+
+    100%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+}
 </style>    </head>
 
     <body>
@@ -527,7 +586,7 @@ footer{
         <section class="intro">
 
             <div class="title-box titleAnimation">
-                <h1>Luis y Derly</h1>
+                <h1>Luis & Derly</h1>
             </div>
 
             <img src="Intro.jpg" class="introImage" alt="Luis y Derly">
@@ -542,6 +601,12 @@ footer{
                     <b>Colosenses 3:14</b>
                 </p>
 
+            </div>
+            <!-- SCROLL INDICATOR -->
+
+            <div class="scroll-indicator">
+                <span>Desliza</span>
+                <div class="arrow"></div>
             </div>
 
         </section>
@@ -668,7 +733,7 @@ footer{
 
             <p>
                 Por favor confirma tu asistencia antes
-                del 5 de Junio 2026.
+                del 30 de Mayo 2026.
             </p>
 
             <button onclick="window.location.href='https://wa.me/573114991935?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Luis%20y%20Derly'">
@@ -903,6 +968,22 @@ footer{
     resizeCanvas();
 
     window.addEventListener('resize', resizeCanvas);
+
+    window.addEventListener("scroll", () => {
+
+    const indicator = document.querySelector(".scroll-indicator");
+
+    if(window.scrollY > 50){
+
+        indicator.style.opacity = "0";
+
+    }else{
+
+        indicator.style.opacity = "0.9";
+
+    }
+
+});
 
     </script>
     <button id="music-toggle" onclick="toggleMusic()">
